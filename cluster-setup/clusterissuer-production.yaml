@@ -1,0 +1,25 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+  namespace: cert-manager
+spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: valera.rozuvan@gmail.com
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt
+    solvers:
+    # ACME DNS-01 provider configurations
+    - dns01:
+        # Google Cloud DNS
+        clouddns:
+          # Secret from the google service account key
+          serviceAccountSecretRef:
+            name: cert-manager
+            key: credentials.json
+          # The project in which to update the DNS zone
+          project: sharky-259408
