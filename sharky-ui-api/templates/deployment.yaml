@@ -22,6 +22,9 @@ spec:
           ports:
             - name: http
               containerPort: {{ .Values.appPort }}
+          envFrom:
+            - secretRef:
+                name: sharky-ui-api-secret
           env:
             - name: NODE_ENV
               value: production

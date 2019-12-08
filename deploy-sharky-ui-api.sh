@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="00001"
+VERSION="00007"
 
 helm upgrade \
   --install \
