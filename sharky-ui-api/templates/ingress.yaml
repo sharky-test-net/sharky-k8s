@@ -1,0 +1,23 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app: {{ .Release.Name }}
+  name: {{ .Release.Name }}
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "sharky-ui-api-static-ip"
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+  - secretName: itsmetommy-io-auto-tls
+    hosts:
+    - api.sharky-test.net
+  rules:
+  - host: api.sharky-test.net
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: {{ .Release.Name }}
+          servicePort: http

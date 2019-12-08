@@ -1,0 +1,21 @@
+---
+cluster: "sharky"
+dockerImage:
+  url: "gcr.io/sharky-259408/sharky-ui-api"
+  tag: "latest"
+
+appPort: 8080
+initialReplicasCount: 1
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 175
+
+resources:
+  requests:
+    memory: "80Mi"
+    cpu: "200m"
+  limits:
+    memory: "500Mi"

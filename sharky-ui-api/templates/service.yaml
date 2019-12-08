@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Release.Name }}
+  annotations:
+    beta.cloud.google.com/backend-config: '{"ports": {"{{ .Values.appPort }}":"{{ .Release.Name }}"}}'
+  name: {{ .Release.Name }}
+spec:
+  type: NodePort
+  sessionAffinity: ClientIP
+  ports:
+    - name: http
+      port: {{ .Values.appPort }}
+  selector:
+    app: {{ .Release.Name }}

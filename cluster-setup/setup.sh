@@ -8,6 +8,7 @@ kubectl create clusterrolebinding \
 
 # creating necessary namespaces
 kubectl create -f ./sharky-ui-namespace.yaml
+kubectl create -f ./sharky-ui-api-namespace.yaml
 kubectl create -f ./cert-manager-namespace.yaml
 
 # installing cert-manager

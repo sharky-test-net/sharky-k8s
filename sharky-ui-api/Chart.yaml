@@ -1,0 +1,6 @@
+apiVersion: v2
+version: 0.0.1
+type: application
+appVersion: "0.0.1"
+description: Sharky UI API chart
+name: sharky-ui-api
