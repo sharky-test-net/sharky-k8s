@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="00021"
+VERSION="00022"
 
 helm upgrade --install sharky-ui sharky-ui --namespace sharky-ui --set dockerImage.tag="${VERSION}"
 
